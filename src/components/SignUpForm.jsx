@@ -10,10 +10,17 @@ import {
     DropdownTrigger,
     DropdownMenu,
     DropdownItem,
-  } from "@nextui-org/react";
+  } from "@heroui/react";
 import logo from "../assets/icons/logo.jfif"
+import { useNavigate } from 'react-router-dom';
 
-export default function SignUp() {
+
+const SignUpForm = () => {
+  const navigate = useNavigate();
+
+  const handleDashboardRedirect = () => {
+    navigate('/dashboard');
+  };
   return (
     <div className="container">
       <Card className="w-full bg-white p-4 rounded-lg shadow-xl">
@@ -41,7 +48,7 @@ export default function SignUp() {
             <Dropdown>
               <DropdownTrigger>
                 <Button 
-                  className="col-span-6 text-right flex justify-between items-center h-14" 
+                  className="col-span-12 md:col-span-6 lg:col-span-6 text-right flex justify-between items-center h-14" 
                   color="default" 
                   variant="flat"
                   endContent= {
@@ -60,50 +67,50 @@ export default function SignUp() {
               </DropdownMenu>
             </Dropdown>
             <Input
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Company Name"
               type="text"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="First Name"
               type="text"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Last Name"
               type="text"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Phone Number"
               type="text"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Email"
               type="email"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Password"
               type="password"
             />
             <Input
               isRequired
-              className="col-span-6"
+              className="col-span-12 md:col-span-6 lg:col-span-6"
               label="Confirm Password"
               type="password"
             />
           </div>
         </CardBody>
-        <CardFooter className="flex justify-between">
-          <div>
+        <CardFooter className="flex flex-col-reverse md:flex-row md:justify-center lg:flex-row lg:justify-between gap-4">
+          <div className="w-full text-center">
             <Link href="#" color="foreground" underline="hover">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -113,12 +120,14 @@ export default function SignUp() {
               </span>
             </Link> 
           </div>
-          <div>
-            <Button color="secondary">Create Account</Button>
+          <div className="w-full">
+            <Button onPress={handleDashboardRedirect} className="w-full" color="secondary">Create Account</Button>
           </div>
         </CardFooter>
       </Card>
     </div>
   );
-}
+};
+
+export default SignUpForm;
 
