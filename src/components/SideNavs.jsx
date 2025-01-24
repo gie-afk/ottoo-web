@@ -1,4 +1,4 @@
-import { Button, Divider, Listbox, ListboxItem } from "@heroui/react";
+import { Listbox, ListboxItem } from "@heroui/react";
 import {
 	CalendarIcon,
 	ClockIcon,
@@ -17,16 +17,7 @@ import {
 
 const SideNavs = () => {
 	return (
-		<div>
-			<div className="flex flex-col gap-2 w-full">
-				<Button className="w-full" color="secondary">
-					Create Listing
-				</Button>
-				<Button className="w-full" color="default">
-					Create Order
-				</Button>
-			</div>
-			<Divider className="my-4" />
+		<div className="w-full">
 			<div className="flex flex-col gap-4">
 				<div>
 					<Listbox aria-label="Dashboard" onAction={(key) => alert(key)}>
