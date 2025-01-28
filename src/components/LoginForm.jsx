@@ -8,6 +8,7 @@ import {
 	Button,
 	Link,
 } from "@heroui/react";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import logo from "../assets/icons/logo.jfif";
 import { useNavigate } from "react-router-dom";
 
@@ -48,28 +49,15 @@ const LoginForm = () => {
 						placeholder="Please enter your email"
 					/>
 				</CardBody>
-				<CardFooter className="flex justify-between">
-					<div>
+				<CardFooter className="flex flex-col-reverse md:flex-row md:justify-center lg:flex-row lg:justify-between gap-4">
+					<div className="w-full text-center">
 						<Link href="#" color="foreground" underline="hover">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={1.5}
-								stroke="currentColor"
-								className="size-4"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-								/>
-							</svg>
+							<ArrowLongLeftIcon className="size-4" />
 							<span>Go back to Ottoo.com</span>
 						</Link>
 					</div>
-					<div>
-						<Button onPress={handleSignUpRedirect} color="secondary">
+					<div className="w-full">
+						<Button onPress={handleSignUpRedirect} color="secondary" className="w-full">
 							Check Email
 						</Button>
 					</div>

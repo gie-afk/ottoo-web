@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import SideNavs from "../components/SideNavs";
-import DashboardContent from "../components/DashboardContent";
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -33,7 +33,7 @@ const Dashboard = () => {
           } md:block lg:block md:col-span-9 lg:col-span-9 xl:col-span-10 bg-gray-100 p-4 md:p-8 lg:p-8`}
           style={{ height: "calc(100vh - 56px)", overflowY: "auto" }}
         >
-          <DashboardContent />
+          <Outlet />
         </div>
       </div>
     </div>

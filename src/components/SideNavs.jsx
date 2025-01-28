@@ -1,124 +1,48 @@
 import { Listbox, ListboxItem } from "@heroui/react";
 import {
-	CalendarIcon,
-	ClockIcon,
-	ComputerDesktopIcon,
-	DevicePhoneMobileIcon,
-	ListBulletIcon,
-	ShoppingBagIcon,
-	ShoppingCartIcon,
 	UserGroupIcon,
-	PencilIcon,
+	CalendarIcon,
+	ShoppingCartIcon,
 	ChartBarIcon,
 	BoltIcon,
 	RectangleGroupIcon,
 	Cog8ToothIcon,
+	HomeIcon,
 } from "@heroicons/react/24/solid";
 
+const navItems = [
+  { key: "listings", label: "Listings", icon: <HomeIcon className="size-4" />, href: "/dashboard" },
+  { key: "agents", label: "Agents", icon: <UserGroupIcon className="size-4" />, href: "/dashboard/agents" },
+  { key: "calendar", label: "Calendar", icon: <CalendarIcon className="size-4" />, href: "" },
+  { key: "store", label: "Store", icon: <ShoppingCartIcon className="size-4" />, href: "" },
+  { key: "team", label: "Team", icon: <RectangleGroupIcon className="size-4" />, href: "" },
+  { key: "apps", label: "Apps", icon: <BoltIcon className="size-4" />, href: "" },
+  { key: "statistics", label: "Statistics", icon: <ChartBarIcon className="size-4" />, href: "" },
+  { key: "settings", label: "Settings", icon: <Cog8ToothIcon className="size-4" />, href: "" },
+];
+
 const SideNavs = () => {
-	return (
-		<div className="w-full">
-			<div className="flex flex-col gap-4">
-				<div>
-					<Listbox aria-label="Dashboard" onAction={(key) => alert(key)}>
-						<ListboxItem
-							key="dashboard"
-							startContent={<ComputerDesktopIcon className="size-4" />}
-						>
-							Dashboard
-						</ListboxItem>
-					</Listbox>
-				</div>
-				<div>
-					<span className="text-purple-800 font-bold">General</span>
-					<Listbox aria-label="General" onAction={(key) => alert(key)}>
-						<ListboxItem
-							key="listing"
-							startContent={<ListBulletIcon className="size-4" />}
-						>
-							Listing
-						</ListboxItem>
-						<ListboxItem
-							startContent={<ShoppingBagIcon className="size-4" />}
-							key="orders"
-						>
-							Orders
-						</ListboxItem>
-						<ListboxItem
-							startContent={<CalendarIcon className="size-4" />}
-							key="calendar"
-						>
-							Calendar
-						</ListboxItem>
-						<ListboxItem
-							startContent={<UserGroupIcon className="size-4" />}
-							key="customers"
-						>
-							Customers
-						</ListboxItem>
-					</Listbox>
-				</div>
-				<div>
-					<span className="text-purple-800 font-bold">Storefront</span>
-					<Listbox aria-label="Storefront" onAction={(key) => alert(key)}>
-						<ListboxItem
-							key="products"
-							startContent={<ShoppingCartIcon className="size-4" />}
-						>
-							Products
-						</ListboxItem>
-						<ListboxItem
-							startContent={<ClockIcon className="size-4" />}
-							key="availability"
-						>
-							Availability
-						</ListboxItem>
-						<ListboxItem
-							startContent={<PencilIcon className="size-4" />}
-							key="orderForms"
-						>
-							Order Forms
-						</ListboxItem>
-						<ListboxItem
-							startContent={<DevicePhoneMobileIcon className="size-4" />}
-							key="customerPortal"
-						>
-							Customer Portal
-						</ListboxItem>
-					</Listbox>
-				</div>
-				<div>
-					<span className="text-purple-800 font-bold">More</span>
-					<Listbox aria-label="More" onAction={(key) => alert(key)}>
-						<ListboxItem
-							key="reports"
-							startContent={<ChartBarIcon className="size-4" />}
-						>
-							Reports
-						</ListboxItem>
-						<ListboxItem
-							startContent={<BoltIcon className="size-4" />}
-							key="appStore"
-						>
-							App Store
-						</ListboxItem>
-						<ListboxItem
-							startContent={<RectangleGroupIcon className="size-4" />}
-							key="team"
-						>
-							Team
-						</ListboxItem>
-						<ListboxItem
-							startContent={<Cog8ToothIcon className="size-4" />}
-							key="settings"
-						>
-							Settings
-						</ListboxItem>
-					</Listbox>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="w-full">
+      <div className="flex flex-col gap-4">
+        <div>
+          <Listbox aria-label="Side Navigation">
+            {navItems.map((nav) => {
+              return (
+                <ListboxItem
+                  key={nav.key}
+                  startContent={nav.icon}
+                  href={nav.href}
+                >
+                  {nav.label}
+                </ListboxItem>
+              );
+            })}
+          </Listbox>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SideNavs;
