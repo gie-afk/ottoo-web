@@ -32,7 +32,7 @@ const Header = ({ toggleNav, isNavVisible }) => {
           )}
         </Button>
       </div>
-      <div className="col-span-2 md:col-span-3 lg:col-span-3 flex flex-shrink items-center justify-left px-0 md:px-4 lg:px-4">
+      <div className="col-span-2 md:col-span-3 lg:col-span-3 xl:col-span-2 flex flex-shrink items-center justify-left px-0 md:px-4 lg:px-4">
         <div className="flex flex-row items-center gap-1 md:gap-2 lg:gap-2">
           <img src={logo} alt="logo" className="size-14" />
           <span className="hidden md:block lg:block md:text-2xl font-bold">
@@ -40,15 +40,15 @@ const Header = ({ toggleNav, isNavVisible }) => {
           </span>
         </div>
       </div>
-      <div className="col-span-4 md:col-span-5 lg:col-span-5 flex flex-grow-1 items-center px-0 md:px-4 lg:px-4">
+      <div className="col-span-4 md:col-span-5 lg:col-span-6 xl:col-span-6 flex flex-grow-1 items-center px-0 md:px-4 lg:px-4">
         <Input
           clearable
           placeholder="Search"
           endContent={<MagnifyingGlassIcon className="size-6" />}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-3/4"
         />
       </div>
-      <div className="col-span-4 md:col-span-4 lg:col-span-4 flex items-center justify-end gap-3 px-2 md:px-4 lg:px-4">
+      <div className="col-span-4 md:col-span-4 lg:col-span-3 xl:col-span-4 flex items-center justify-end gap-3 px-2 md:px-4 lg:px-4">
         <Tooltip content="Notifications">
           <Button isIconOnly aria-label="Notifications">
             <BellIcon className="size-6" />

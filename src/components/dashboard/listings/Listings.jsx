@@ -102,7 +102,7 @@ const Listings = () => {
             listings.map((item) => {
               return (
                 <Card key={item.key} isFooterBlurred className="w-full col-span-12 md:col-span-6 lg:col-span-4 bg-white shadow-xl">
-                  <CardHeader className="absolute z-50 top-1 flex-row gap-1 items-start">
+                  <CardHeader className="absolute z-50 top-1 flex-row gap-1 items-start px-1 py-0">
                     <Chip size="sm" color="success">Delivered</Chip>
                     <Chip size="sm" color="success">Paid</Chip>
                   </CardHeader>

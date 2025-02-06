@@ -5,8 +5,10 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 //Dashboard
 import Dashboard from "./pages/Dashboard";
-import Listings from "./components/Listings";
-import Agents from "./components/Agents";
+import Listings from "./components/dashboard/listings/Listings";
+import Services from "./components/dashboard/services/Services";
+import AddService from "./components/dashboard/services/AddService";
+import ServicesLayout from "./components/dashboard/services/ServicesLayout";
 
 const routeConfig = [
   { path: "/", element: <Login /> },
@@ -15,9 +17,15 @@ const routeConfig = [
     path: "/dashboard",
     element: <Dashboard />,
     children: [
-			{ path: "", element: <Listings /> },
-			{ path: "agents", element: <Agents /> },
-		],
+      { path: "", element: <Listings /> },
+      { path: "services", 
+        element: <ServicesLayout />,
+        children: [
+          { path: "", element: <Services /> },
+          { path: "add-service", element: <AddService />}
+        ]
+      },
+    ],
   },
 ];
 
@@ -26,14 +34,26 @@ const App = () => {
   return (
     <HeroUIProvider navigate={navigate} useHref={useHref}>
       <Routes>
-        {routeConfig.map((route) => (
-          <Route key={route.path} path={route.path} element={route.element}>
-            {route.children?.map((child) => (
-              <Route key={child.path} path={child.path} element={child.element} />
+    {routeConfig.map((route) => (
+      <Route key={route.path} path={route.path} element={route.element}>
+        {route.children?.map((child) => (
+          <Route
+            key={child.path}
+            path={child.path}
+            element={child.element}
+          >
+            {child.children?.map((nestedChild) => (
+              <Route
+                key={nestedChild.path}
+                path={nestedChild.path}
+                element={nestedChild.element}
+              />
             ))}
           </Route>
         ))}
-			</Routes>
+      </Route>
+    ))}
+  </Routes>
     </HeroUIProvider>
   );
 };
