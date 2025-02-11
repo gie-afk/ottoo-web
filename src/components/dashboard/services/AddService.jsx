@@ -56,7 +56,7 @@ const AddService = () => {
           <Form className="w-full" onSubmit={onSubmit}>
             <Input
               isRequired
-              label="Username"
+              label="Title"
               labelPlacement="outside"
               name="title"
               placeholder="Title"

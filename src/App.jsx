@@ -6,9 +6,15 @@ import SignUp from "./pages/SignUp";
 //Dashboard
 import Dashboard from "./pages/Dashboard";
 import Listings from "./components/dashboard/listings/Listings";
+//Services
 import Services from "./components/dashboard/services/Services";
 import AddService from "./components/dashboard/services/AddService";
 import ServicesLayout from "./components/dashboard/services/ServicesLayout";
+//Customers
+import AgentsLayout from "./components/dashboard/customers/AgentsLayout";
+import Agents from "./components/dashboard/customers/Agents";
+import AgentsPortal from "./components/dashboard/customers/AgentsPortal";
+import AgentTeams from "./components/dashboard/customers/AgentTeams";
 
 const routeConfig = [
   { path: "/", element: <Login /> },
@@ -23,6 +29,14 @@ const routeConfig = [
         children: [
           { path: "", element: <Services /> },
           { path: "add-service", element: <AddService />}
+        ]
+      },
+      { path: "agents-portal", 
+        element: <AgentsLayout />,
+        children: [
+          { path: "", element: <AgentsPortal /> },
+          { path: "agents", element: <Agents /> },
+          { path: "agent-teams", element: <AgentTeams />}
         ]
       },
     ],
