@@ -1,6 +1,5 @@
-import { Listbox, ListboxItem } from "@heroui/react";
-import PropTypes from "prop-types";
-
+import React, { useState } from 'react';
+import { Listbox, ListboxItem, Button, Divider} from "@heroui/react";
 import {
 	UserGroupIcon,
 	CalendarIcon,
@@ -10,6 +9,7 @@ import {
 	RectangleGroupIcon,
 	Cog8ToothIcon,
 	HomeIcon,
+  PlusIcon,
 } from "@heroicons/react/24/solid";
 
 const navItems = [
@@ -20,22 +20,39 @@ const navItems = [
   { key: "team", label: "Team", icon: <RectangleGroupIcon className="size-4" />, href: "" },
   { key: "apps", label: "Apps", icon: <BoltIcon className="size-4" />, href: "" },
   { key: "statistics", label: "Statistics", icon: <ChartBarIcon className="size-4" />, href: "" },
-  { key: "settings", label: "Settings", icon: <Cog8ToothIcon className="size-4" />, href: "" },
+  { key: "settings", label: "Settings", icon: <Cog8ToothIcon className="size-4" />, href: "/dashboard/settings" },
 ];
 
-const SideNavs = ({ toggleNav }) => {
+const SideNavs = () => {
+  const [activeKey, setActiveKey] = useState(navItems[0].key);
+  const handleNavClick = (key) => {
+    setActiveKey(key);
+  };
   return (
     <div className="w-full">
       <div className="flex flex-col gap-4">
         <div>
-          <Listbox aria-label="Side Navigation">
+          <Button
+            color="default"
+            startContent={<PlusIcon className="size-4" />}
+            className="w-full"
+          >
+            Create Order
+          </Button>
+        </div>
+        <Divider />
+        <div>
+          <Listbox shouldHighlightOnFocus={false} aria-label="Side Navigation">
             {navItems.map((nav) => {
               return (
                 <ListboxItem
                   key={nav.key}
                   startContent={nav.icon}
                   href={nav.href}
-                  onPress={toggleNav}
+                  onPress={() => handleNavClick(nav.key)}
+                  className={
+                    activeKey === nav.key ? "bg-purple-800 text-white" : ""
+                  }
                 >
                   {nav.label}
                 </ListboxItem>
@@ -46,9 +63,6 @@ const SideNavs = ({ toggleNav }) => {
       </div>
     </div>
   );
-};
-SideNavs.propTypes = {
-  toggleNav: PropTypes.func.isRequired,
 };
 
 export default SideNavs;

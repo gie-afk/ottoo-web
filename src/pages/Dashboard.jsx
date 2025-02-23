@@ -25,7 +25,7 @@ const Dashboard = () => {
           } col-span-11 md:block lg:block p-4 md:col-span-3 lg:col-span-3 xl:col-span-2 bg-white z-10`}
           style={{ height: "calc(100vh - 56px)", overflow: "auto" }}
         >
-          <SideNavs toggleNav={toggleNav}/>
+          <SideNavs />
         </div>
         <div
           className={`${

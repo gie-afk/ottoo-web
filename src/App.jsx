@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, useNavigate, useHref } from "react-router-dom";
 import { HeroUIProvider } from "@heroui/react";
+//Login and SignUp
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 //Dashboard
@@ -15,6 +16,9 @@ import AgentsLayout from "./components/dashboard/customers/AgentsLayout";
 import Agents from "./components/dashboard/customers/Agents";
 import AgentsPortal from "./components/dashboard/customers/AgentsPortal";
 import AgentTeams from "./components/dashboard/customers/AgentTeams";
+//Settings
+import Settings from "./components/dashboard/settings/Settings";
+import SettingsLayout from "./components/dashboard/settings/SettingsLayout";
 
 const routeConfig = [
   { path: "/", element: <Login /> },
@@ -37,6 +41,12 @@ const routeConfig = [
           { path: "", element: <AgentsPortal /> },
           { path: "agents", element: <Agents /> },
           { path: "agent-teams", element: <AgentTeams />}
+        ]
+      },
+      { path: "settings", 
+        element: <SettingsLayout />,
+        children: [
+          { path: "", element: <Settings /> },
         ]
       },
     ],
