@@ -12,13 +12,18 @@ import Services from "./components/dashboard/services/Services";
 import AddService from "./components/dashboard/services/AddService";
 import ServicesLayout from "./components/dashboard/services/ServicesLayout";
 //Customers
-import AgentsLayout from "./components/dashboard/customers/AgentsLayout";
-import Agents from "./components/dashboard/customers/Agents";
-import AgentsPortal from "./components/dashboard/customers/AgentsPortal";
-import AgentTeams from "./components/dashboard/customers/AgentTeams";
+import AgentsLayout from "./components/dashboard/agents/AgentsLayout";
+import Agents from "./components/dashboard/agents/Agents";
+import AgentsPortal from "./components/dashboard/agents/AgentsPortal";
+import AgentTeams from "./components/dashboard/agents/AgentTeams";
 //Settings
 import Settings from "./components/dashboard/settings/Settings";
 import SettingsLayout from "./components/dashboard/settings/SettingsLayout";
+//Team
+import Team from "./components/dashboard/team/Team";
+import TeamLayout from "./components/dashboard/team/TeamLayout";
+import AddTeam from "./components/dashboard/team/AddTeam";
+import EditTeam from "./components/dashboard/team/EditTeam";
 
 const routeConfig = [
   { path: "/", element: <Login /> },
@@ -47,6 +52,14 @@ const routeConfig = [
         element: <SettingsLayout />,
         children: [
           { path: "", element: <Settings /> },
+        ]
+      },
+      { path: "team", 
+        element: <TeamLayout />,
+        children: [
+          { path: "", element: <Team /> },
+          { path: "add-team", element: <AddTeam />},
+          { path: "edit-team", element: <EditTeam />}
         ]
       },
     ],
