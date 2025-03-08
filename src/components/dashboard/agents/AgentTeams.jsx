@@ -53,7 +53,7 @@ const AgentTeams = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div>
       <div className="flex flex-col gap-4">
         <div className="text-2xl font-bold">Agent Teams</div>
         <div>

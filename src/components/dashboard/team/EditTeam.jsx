@@ -9,7 +9,7 @@ import DeleteTeamMember from "./edit-team/DeleteTeamMember";
 const EditTeam = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col">
+    <div>
       <div className="flex flex-col">
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="w-full xl:w-3/4 text-2xl font-bold items-start">

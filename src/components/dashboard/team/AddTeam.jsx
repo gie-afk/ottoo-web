@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 const AddTeam = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-8">
+    <div>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="w-full xl:w-1/2 text-2xl font-bold items-start">

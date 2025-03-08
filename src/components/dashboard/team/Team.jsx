@@ -98,7 +98,7 @@ const Team = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div>
       <div className="flex flex-col gap-4">
         <div className="text-2xl font-bold">Team Members</div>
         <div className="flex flex-row justify-end gap-2">

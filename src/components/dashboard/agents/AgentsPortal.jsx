@@ -33,11 +33,11 @@ const AgentsPortal = () => {
     navigate(route);
   };
   return (
-    <div className="flex flex-col gap-8">
+    <div>
       <div className="flex flex-col gap-4">
-        <div className="text-2xl font-bold">Agents Portal</div>
-        <div>
-          <p>
+        <div className="flex flex-col">
+          <p className="text-2xl font-bold">Agents Portal</p>
+          <p className="text-sm">
             Manage your agents and organize them into teams to easily manage
             complex pricing and billing configurations as your business grows.
           </p>
