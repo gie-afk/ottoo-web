@@ -15,11 +15,11 @@ import {
 const navItems = [
   { key: "listings", label: "Listings", icon: <HomeIcon className="size-4" />, href: "/dashboard" },
   { key: "agents", label: "Agents", icon: <UserGroupIcon className="size-4" />, href: "/dashboard/agents-portal" },
-  { key: "calendar", label: "Calendar", icon: <CalendarIcon className="size-4" />, href: "" },
+  { key: "calendar", label: "Calendar", icon: <CalendarIcon className="size-4" />, href: "/dashboard/calendar" },
   { key: "services", label: "Services", icon: <ShoppingCartIcon className="size-4" />, href: "/dashboard/services" },
   { key: "team", label: "Team", icon: <RectangleGroupIcon className="size-4" />, href: "/dashboard/team" },
   { key: "apps", label: "Apps", icon: <BoltIcon className="size-4" />, href: "" },
-  { key: "statistics", label: "Statistics", icon: <ChartBarIcon className="size-4" />, href: "" },
+  { key: "statistics", label: "Statistics", icon: <ChartBarIcon className="size-4" />, href: "/dashboard/statistics" },
   { key: "settings", label: "Settings", icon: <Cog8ToothIcon className="size-4" />, href: "/dashboard/settings" },
 ];
 

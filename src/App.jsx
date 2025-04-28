@@ -24,7 +24,12 @@ import Team from "./components/dashboard/team/Team";
 import TeamLayout from "./components/dashboard/team/TeamLayout";
 import AddTeam from "./components/dashboard/team/AddTeam";
 import EditTeam from "./components/dashboard/team/EditTeam";
-
+//Calendar
+import CalendarLayout from "./components/dashboard/calendar/CalendarLayout";
+import Calendar from "./components/dashboard/calendar/Calendar";
+//Statistics
+import Statistics from "./components/dashboard/statistics/Statistics";
+import StatisticsLayout from "./components/dashboard/statistics/StatisticsLayout";
 const routeConfig = [
   { path: "/", element: <Login /> },
   { path: "/sign-up", element: <SignUp /> },
@@ -62,6 +67,18 @@ const routeConfig = [
           { path: "edit-team", element: <EditTeam />}
         ]
       },
+      { path: "calendar",
+        element: <CalendarLayout />,
+        children: [
+          { path: "", element: <Calendar /> }
+        ] 
+      },
+      { path: "statistics",
+        element: <StatisticsLayout />,
+        children: [
+          { path: "", element: <Statistics /> }
+        ] 
+      }
     ],
   },
 ];
