@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  Alert,
   Button,
   Card,
   CardHeader,
@@ -26,17 +27,44 @@ const LoginForm = () => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
     console.log(data)
-    const response = await api.post('/token/', data);
-    console.log(response)
-    if (response.status == 200) {
-      navigate("/dashboard");
+    try {
+      const response = await api.post('/token/', data);
+      console.log(response)
+    } catch (error) {
+      console.log("error", error)
+    } finally {
+      console.log()
     }
+    // const responseData = async() => {
+    //   try {
+        
+    //     console.log("response", response)
+    //     if (response?.status == 200) {
+    //       navigate("/dashboard");
+    //     }
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // }
+    // console.log(responseData)
+    
+    
   };
   const handleSignUpRedirect = () => { };
 
   return (
     <div className="container">
       <Form className="w-full justify-center items-center space-y-4" onSubmit={onSubmit}>
+        <div className="w-full flex flex-col gap-4">
+          <div className="flex flex-col justify-center items-center">
+            <Alert
+              key="solid"
+              color="danger"
+              title="This is a solid variant"
+              variant="solid"
+            />
+          </div>
+        </div>
         <Card className="w-full bg-white p-4 rounded-lg shadow-xl">
           <CardHeader>
             <div className="w-full flex flex-col gap-4">
@@ -54,11 +82,8 @@ const LoginForm = () => {
             <div className="grid grid-cols-12 gap-4">
               <Input
                 isRequired
-                errorMessage={({ validationDetails }) => {
-                  if (validationDetails.valueMissing) {
-                    return "Please enter a valid email";
-                  }
-                }}
+                errorMessage="Please enter a valid email"
+                isInvalid={true}
                 className="col-span-12 md:col-span-12 lg:col-span-12"
                 label="Email"
                 name="email"
